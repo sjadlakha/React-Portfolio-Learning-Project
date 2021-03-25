@@ -39,8 +39,12 @@
 /* will use rem in the project as bootstrap uses rem */
 
 :root {
+  --primary-dark-green: #14342bff;
+  --primary-light-green: #60935dff;
+  --acid-green: #bab700ff;
+  --primary-light: #bbdfc5ff;
+  --primary-rose: #ff579fff;
   --primary-white: #fff;
-  --primary-green: #9ae19d;
   --primary-dark: #2c302e;
 }
 
@@ -49,6 +53,9 @@ body {
 }
 
 /************* Navbar **************/
+nav {
+  z-index: 2;
+}
 .logo {
   width: 16.25rem;
   height: 6rem !important ;
@@ -78,12 +85,95 @@ nav ul li {
   padding: 0 !important;
   height: 6rem !important;
 }
+@media (max-width: 768px) {
+  .navbar-brand {
+    width: 7rem !important;
+  }
+}
 
 .navbar-nav > li > a.active,
 .navbar-nav > li > a.active:focus {
-  border-top: 0.1875rem solid var(--primary-green);
+  border-top: 0.1875rem solid var(--primary-light-green);
 }
 
 .navbar-nav > li > a:hover {
-  border-top: 0.1875rem solid var(--primary-green);
+  border-top: 0.1875rem solid var(--primary-light-green);
+}
+
+/************* Header **************/
+
+.header-wraper {
+  position: relative;
+  background: url(computer-bg.png);
+  background-size: cover;
+  background-position: center;
+  /* background-clip: var(--acid-green); */
+  height: 90vh;
+  opacity: 0.9;
+  /* filter: blur(4px); */
+}
+
+.main-info {
+  display: flex;
+  /* to manage the z index */
+  position: absolute;
+  /* to align in middle */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.main-info h1 {
+  color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  .main-info h1 {
+    font-size: 1.5rem !important;
+  }
+  .typed-text {
+    font-size: 1.3rem !important;
+  }
+}
+.typed-text {
+  font-size: 2rem;
+  color: var(--acid-green);
+}
+
+/* Header main offer btn */
+.btn-main-offer {
+  border: 1px solid var(--primary-light-green);
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 0.625rem 0.75rem 0.75rem 0.75rem;
+  color: var(--acid-green);
+  margin: 2rem;
+  cursor: pointer;
+  /* z-index: 2; */
+}
+/* .btn-main-offer:hover {
+  text-decoration: none;
+  background-color: var(--acid-green);
+  color: var(--primary-dark);
+  transition: 0.2s ease-in-out;
+} */
+
+/* *Particles */
+.tsparticles-canvas-el {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .particles-canvas {
+    display: none;
+  }
 }
